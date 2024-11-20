@@ -17,11 +17,11 @@ class EnviromentTest extends TestCase
 
         $this->assertEquals("www.hendy.com", $url);
     }
-
-    public function testGetEnvFailure(): void
+    
+    public function testGetEnvDefault(): void
     {
-        $url = env(key: "PUBLIC_URL_NOT_EXIST");
-        $this->assertNull($url);
+        $url = env("PUBLIC_URL_DEFAULT", "default.com");
+        $this->assertEquals("default.com", $url);
     }
 
 }
