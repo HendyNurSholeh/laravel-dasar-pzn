@@ -30,4 +30,9 @@ class EnviromentTest extends TestCase
         $this->assertEquals("default.com", $url);
     }
 
+    public function testGetAppEnv():void{
+        $appEnv = env("APP_ENV");
+        $this->assertEquals("testing", $appEnv);
+    }
+
 }
