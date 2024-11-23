@@ -18,9 +18,7 @@ class ApplicationEnviromentTest extends TestCase
             $this->assertTrue(true);
         }
     }
-
     
-
 
 
 }
