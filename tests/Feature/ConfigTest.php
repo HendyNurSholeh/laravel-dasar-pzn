@@ -20,4 +20,14 @@ class ConfigTest extends TestCase
         $this->assertEquals('Iqbal', $lastName);
         $this->assertTrue(condition: $debug);
     }
+
+    public function testConfigContohUrl(): void{
+        $url = config("contoh.url");
+        $this->assertEquals("http://localhost", $url);
+    }
+    
+    public function testConfigDefaultValue(): void{
+        $value = config("contoh.notfound", "hendy");
+        $this->assertEquals("hendy", $value);
+    }
 }

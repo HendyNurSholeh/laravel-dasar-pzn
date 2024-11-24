@@ -6,7 +6,7 @@ return [
     ],
     'env' => 'testing',
     'debug' => true,
-    'url' => 'http://localhost',
+    'url' => env("APP_URL"),
     'timezone' => 'UTC',
 ];
-?>  
+?>
