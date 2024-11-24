@@ -1,7 +1,7 @@
 <?php 
 return [
     'name' => [
-        'first' => 'Muhammad',
+        'first' => 'Muhammad2',
         'last' => 'Iqbal'
     ],
     'env' => 'testing',

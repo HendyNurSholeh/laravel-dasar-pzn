@@ -16,7 +16,7 @@ class ConfigTest extends TestCase
         $firstName = config('contoh.name.first');
         $lastName = config('contoh.name.last');
         $debug = config('contoh.debug');
-        $this->assertEquals('Muhammad', $firstName);
+        $this->assertEquals('Muhammad2', $firstName);
         $this->assertEquals('Iqbal', $lastName);
         $this->assertTrue(condition: $debug);
     }
@@ -27,7 +27,7 @@ class ConfigTest extends TestCase
     }
     
     public function testConfigDefaultValue(): void{
-        $value = config("contoh.notfound", "hendy");
+        $value = config("contoh.notfound", default: "hendy");
         $this->assertEquals("hendy", $value);
     }
 }
