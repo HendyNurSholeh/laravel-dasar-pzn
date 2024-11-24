@@ -2,25 +2,18 @@
 
 namespace Tests\Feature;
 
-
+use App\Data\Bar;
+use App\Data\Foo;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-use App\Data\Foo;
-use App\Data\Bar;
 
-
-class DependencyInjectionTest extends TestCase
+class ServiceContainerTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     */
-    public function testFooBar(): void{
-        $foo = new Foo();
-        $bar = new Bar($foo);
+    public function testDependencyInjection(): void{
+        $foo = $this->app->make(Foo::class);
+        $bar = $this->app->make(Bar::class);
         $this->assertEquals("foo", $foo->foo()); 
         $this->assertEquals("foo and Bar", $bar->bar()); 
     }
-    
-    
 }
