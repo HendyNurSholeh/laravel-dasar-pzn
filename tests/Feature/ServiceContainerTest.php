@@ -46,4 +46,11 @@ class ServiceContainerTest extends TestCase
         $this->assertNotNull($person2);
         $this->assertSame($person1, $person2);
     }
+    public function testInstance(){
+        $person = new Person("hendy", "nur sholeh");
+        $this->app->instance(Person::class, $person);
+        $person1 = $this->app->make(Person::class);
+        $person2 = $this->app->make(Person::class);
+        $this->assertSame($person1, $person2);
+    }
 }
