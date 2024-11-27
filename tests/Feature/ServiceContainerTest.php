@@ -52,5 +52,34 @@ class ServiceContainerTest extends TestCase
         $person1 = $this->app->make(Person::class);
         $person2 = $this->app->make(Person::class);
         $this->assertSame($person1, $person2);
+        $this->assertSame($person1, $person);
+    }
+
+    public function testDependencyInjeection(): void{
+        $this->app->singleton(Foo::class, function($app){
+            return new Foo();
+        });
+        $foo = $this->app->make(Foo::class);
+        $foo2 = new Foo();
+        $bar = $this->app->make(Bar::class);
+        $bar2 = $this->app->make(Bar::class);
+        $this->assertSame($foo, $bar->foo());
+        $this->assertNotSame($foo2, $bar->foo());
+        $this->assertSame($bar2->foo(), $bar->foo());
+        $this->assertNotSame($bar, $bar2);
+    }
+    
+    public function testDependencyInjectionInClosure(): void{
+        $this->app->singleton(Foo::class, function($app){
+            return new Foo();
+        });
+        $this->app->singleton(Bar::class, function($app){
+            $foo = $app->make(Foo::class);
+            return new Bar($foo);
+        });
+        
+        $bar = $this->app->make(Bar::class);
+        $bar2 = $this->app->make(Bar::class);
+        $this->assertSame($bar, $bar2);
     }
 }

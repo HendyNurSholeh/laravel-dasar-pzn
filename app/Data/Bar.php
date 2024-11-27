@@ -8,6 +8,10 @@ class Bar{
         $this->foo = $foo;
     }
 
+    public function foo(): Foo{
+        return $this->foo;
+    }
+
     public function bar(): string{
         return $this->foo->foo() . " and Bar";
     }
