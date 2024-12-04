@@ -25,7 +25,7 @@ class ConfigTest extends TestCase
         $url = config("contoh.url");
         $this->assertEquals("http://localhost", $url);
     }
-    
+
     public function testConfigDefaultValue(): void{
         $value = config("contoh.notfound", default: "hendy");
         $this->assertEquals("hendy", $value);
