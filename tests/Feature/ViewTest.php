@@ -15,4 +15,10 @@ class ViewTest extends TestCase
             ->assertStatus(200)
             ->assertSeeText('Hallo Hendy');
     }
+    public function testNestedView(): void
+    {
+        $this->get('/hello-word')
+            ->assertStatus(200)
+            ->assertSeeText('Hallo Word Hendy');
+    }
 }

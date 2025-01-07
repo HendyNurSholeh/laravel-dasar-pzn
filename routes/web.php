@@ -16,3 +16,4 @@ Route::fallback(function () {
 //    return view("hello", ["name" => "Hendy"]);
 //});
 Route::view("hello", "hello", ["name" => "Hendy"]);
+Route::view("hello-word", "hello.word", ["name" => "Hendy"]);
