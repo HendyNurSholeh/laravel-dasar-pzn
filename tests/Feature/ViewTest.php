@@ -18,7 +18,14 @@ class ViewTest extends TestCase
     public function testNestedView(): void
     {
         $this->get('/hello-word')
-            ->assertStatus(200)
-            ->assertSeeText('Hallo Word Hendy');
+        ->assertStatus(200)
+        ->assertSeeText('Hallo Word Hendy');
     }
+
+    public function testViewWithoutRouting(): void
+    {
+        $this->view('hello', ['name' => 'Agus'])
+            ->assertSeeText('Hallo Agus');
+    }
+
 }

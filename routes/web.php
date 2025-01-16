@@ -12,8 +12,8 @@ Route::get('/hendy', function () {
 Route::fallback(function () {
     return "Maaf, halaman tidak ditemukan";
 });
-//Route::get("hello", function(){
+// Route::get("hello", function(){
 //    return view("hello", ["name" => "Hendy"]);
-//});
+// });
 Route::view("hello", "hello", ["name" => "Hendy"]);
 Route::view("hello-word", "hello.word", ["name" => "Hendy"]);
