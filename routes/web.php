@@ -26,3 +26,6 @@ Route::get("products/{id}/items/{item}", function($productId, $item){
 Route::get("/categories/{id}", function ($id) {
     return "Category id: {$id}";
 })->where("id", "[0-9]+");
+Route::get("/categories/{name?}", function ($name = "kosong") {
+    return "Category name: {$name}";
+});

@@ -48,4 +48,13 @@ class ViewTest extends TestCase
             ->assertSeeText("Maaf, halaman tidak ditemukan");
     }
 
+    public function testRouteParameterWithOptional(): void{
+        $this->get("/categories")
+            ->assertStatus(200)
+            ->assertSeeText('Category name: kosong');
+        $this->get("/categories/elektronik")
+            ->assertStatus(200)
+            ->assertSeeText('Category name: elektronik');
+    }
+
 }
