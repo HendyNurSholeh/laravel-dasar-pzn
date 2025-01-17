@@ -23,3 +23,6 @@ Route::get("products/{id}", function($productId){
 Route::get("products/{id}/items/{item}", function($productId, $item){
     return "Product id: {$productId} and item: {$item}";
 });
+Route::get("/categories/{id}", function ($id) {
+    return "Category id: {$id}";
+})->where("id", "[0-9]+");

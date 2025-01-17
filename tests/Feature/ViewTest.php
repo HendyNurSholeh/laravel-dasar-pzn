@@ -40,4 +40,12 @@ class ViewTest extends TestCase
             ->assertSeeText('Product id: 2 and item: jahe');
     }
 
+    public function testRouteParameterWithWhere(): void{
+        $this->get("/categories/2")
+            ->assertStatus(200)
+            ->assertSeeText('Category id: 2');
+        $this->get("/categories/ljkljio")
+            ->assertSeeText("Maaf, halaman tidak ditemukan");
+    }
+
 }
