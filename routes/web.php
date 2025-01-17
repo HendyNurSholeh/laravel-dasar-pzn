@@ -17,3 +17,9 @@ Route::fallback(function () {
 // });
 Route::view("hello", "hello", ["name" => "Hendy"]);
 Route::view("hello-word", "hello.word", ["name" => "Hendy"]);
+Route::get("products/{id}", function($productId){
+    return "Product id: {$productId}";
+});
+Route::get("products/{id}/items/{item}", function($productId, $item){
+    return "Product id: {$productId} and item: {$item}";
+});

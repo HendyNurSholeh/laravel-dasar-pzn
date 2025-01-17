@@ -8,7 +8,7 @@ use Tests\TestCase;
 
 class ViewTest extends TestCase
 {
-    
+
     public function testView(): void
     {
         $this->get('/hello')
@@ -26,6 +26,18 @@ class ViewTest extends TestCase
     {
         $this->view('hello', ['name' => 'Agus'])
             ->assertSeeText('Hallo Agus');
+    }
+
+    public function testRouteParameter(): void{
+        $this->get('/products/2')
+            ->assertStatus(200)
+            ->assertSeeText('Product id: 2');
+    }
+
+    public function testRouteMultipleParameter(): void{
+        $this->get("/products/2/items/jahe")
+            ->assertStatus(200)
+            ->assertSeeText('Product id: 2 and item: jahe');
     }
 
 }
