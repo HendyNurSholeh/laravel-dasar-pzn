@@ -50,6 +50,11 @@ class ResponseControllerTest extends TestCase
             ->assertHeader('Content-Type', 'image/jpeg');
     }
 
+    public function testResponseWithDownload(): void
+    {
+        $this->get('response/response-with-download')
+            ->assertStatus(200);
+    }
 
 
 }

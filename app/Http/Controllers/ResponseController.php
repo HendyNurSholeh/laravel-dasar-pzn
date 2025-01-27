@@ -40,5 +40,10 @@ class ResponseController extends Controller
     {
         return response()->file(storage_path("app/public/files/avatar.jpg"));
     }
+
+    public function responseWithDownload():BinaryFileResponse
+    {
+        return response()->download(storage_path("app/public/files/avatar.jpg"));
+    }
     
 }
