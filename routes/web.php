@@ -52,3 +52,4 @@ Route::get('hello/request', [HelloController::class, 'testRequest']);
 Route::get('hello/{name}', [HelloController::class, 'hello', 'name' => 'Hendy']);
 Route::get('input/hello', [InputController::class, 'hello']);
 Route::post('input/hello', [InputController::class, 'hello']);
+Route::post('input/all', [InputController::class, 'inputAllJson']);

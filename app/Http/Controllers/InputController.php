@@ -9,7 +9,18 @@ class InputController extends Controller
 {
     public function hello(Request $request):string
     {
-        $name = $request->input("name.first");
+        if($request->method() == "POST"){
+            $name = $request->input("name.first");
+        } else {
+            $name = $request->input("name");
+        }
         return "Halo $name";
     }
+
+    public function inputAllJson(Request $request):string
+    {
+        return json_encode($request->input());
+    }
+
+    
 }
