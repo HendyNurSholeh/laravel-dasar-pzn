@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Faker\Core\File;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class ResponseController extends Controller
 {
@@ -32,6 +34,11 @@ class ResponseController extends Controller
     public function responseWithJson():JsonResponse
     {
         return response()->json(["name" => "Hendy"]);
+    }
+
+    public function responseWithFile():BinaryFileResponse
+    {
+        return response()->file(storage_path("app/public/files/avatar.jpg"));
     }
     
 }

@@ -43,5 +43,13 @@ class ResponseControllerTest extends TestCase
             ->assertJson(['name' => 'Hendy']);
     }
 
+    public function testResponseWithFile(): void
+    {
+        $this->get('response/response-with-file')
+            ->assertStatus(200)
+            ->assertHeader('Content-Type', 'image/jpeg');
+    }
+
+
 
 }

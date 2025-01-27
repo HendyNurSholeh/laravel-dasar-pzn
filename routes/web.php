@@ -69,3 +69,4 @@ Route::post('response/response', [ResponseController::class, 'response']);
 Route::post('response/response-with-header', [ResponseController::class, 'responseWithHeader']);
 Route::get('response/response-with-view', [ResponseController::class, 'responseWithView']);
 Route::get('response/response-with-json', [ResponseController::class, 'responseWithJson']);
+Route::get('response/response-with-file', [ResponseController::class, 'responseWithFile']);
