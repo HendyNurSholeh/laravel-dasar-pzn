@@ -32,4 +32,12 @@ class InputControllerTest extends TestCase
             ->assertExactJson(['name' => 'Hendy']);
     }
 
+    public function testInputArray(): void
+    {
+        $this->post('input/array', ['products' => [['name' => 'Hendy', 'middle'=>'sholeh'], ['name' => 'Nur']]])
+            ->assertStatus(200)
+            ->assertSeeText('Hendy')
+            ->assertSeeText('Nur');
+    }
+
 }
