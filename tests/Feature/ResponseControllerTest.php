@@ -53,6 +53,7 @@ class ResponseControllerTest extends TestCase
     public function testResponseWithDownload(): void
     {
         $this->get('response/response-with-download')
+            ->assertDownload('avatar.jpg')
             ->assertStatus(200);
     }
 
