@@ -67,3 +67,4 @@ Route::post('input/merge-if-missing', [InputController::class, 'inputMergeIfMiss
 Route::post('file/upload', [FileController::class, 'upload']);
 Route::post('response/response', [ResponseController::class, 'response']);
 Route::post('response/response-with-header', [ResponseController::class, 'responseWithHeader']);
+Route::get('response/response-with-view', [ResponseController::class, 'responseWithView']);

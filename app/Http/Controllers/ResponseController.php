@@ -22,4 +22,9 @@ class ResponseController extends Controller
         return response(json_encode($body), status: 200)
             ->header("Content-Type", "application/json");
     }
+
+    public function responseWithView(): Response
+    {
+        return response()->view("hello", ["name" => "Hendy"]);
+    }
 }

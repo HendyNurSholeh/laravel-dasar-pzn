@@ -24,7 +24,14 @@ class ResponseControllerTest extends TestCase
         $this->post('response/response-with-header')
             ->assertStatus(200)
             ->assertSeeText('Hendy')
-            ->assertSeeText(value: 'hendy@gmail.com')
-            ->assertHeader(headerName: 'Content-Type', 'application/json');
+            ->assertSeeText( 'hendy@gmail.com')
+            ->assertHeader('Content-Type', 'application/json');
+    }
+
+    public function testResponseWithView(): void
+    {
+        $this->get('response/response-with-view')
+            ->assertStatus(200)
+            ->assertSeeText('Hallo Hendy');
     }
 }
