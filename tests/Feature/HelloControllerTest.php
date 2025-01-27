@@ -24,4 +24,14 @@ class HelloControllerTest extends TestCase
             ->assertStatus(200)
             ->assertSeeText('Halo indonesia');
     }
+
+    public function testRequest(): void
+    {
+        $this->get('/hello/request', ['Accept' => 'application/json'])
+            ->assertStatus(200)
+            ->assertSeeText('/hello/request')
+            ->assertSeeText('http://localhost/hello/request')
+            ->assertSeeText('GET')
+            ->assertSeeText('application/json');
+    }
 }
