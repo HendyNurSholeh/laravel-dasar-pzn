@@ -29,3 +29,10 @@ Route::get("/categories/{id}", function ($id) {
 Route::get("/categories/{name?}", function ($name = "kosong") {
     return "Category name: {$name}";
 });
+
+Route::get('/confilict/hendy', function ($name) {
+    return "confilict hendy nur sholeh";
+});
+Route::get('/confilict/{name}', function ($name) {
+    return "confilict {$name}";
+});

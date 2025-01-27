@@ -57,4 +57,13 @@ class ViewTest extends TestCase
             ->assertSeeText('Category name: elektronik');
     }
 
+    public function testConflictRoute(): void{
+        $this->get("/confilict/joko")
+            ->assertStatus(200)
+            ->assertSeeText('confilict joko');
+        $this->get("/confilict/hendy")
+            ->assertStatus(200)
+            ->assertSeeText('confilict hendy nur sholeh');
+    }
+
 }
