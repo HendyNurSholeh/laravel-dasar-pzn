@@ -48,7 +48,25 @@ class InputControllerTest extends TestCase
         $this->post('input/query?name=Hendy')
             ->assertStatus(200)
             ->assertSeeText('Hendy');
+    }
 
+    public function testInputType(): void
+    {
+        $this->post('input/type', [
+            'name' => 'Hendy',
+            'age' => '30',
+            'is_active' => '1',
+            'price' => '100.5',
+            'married' => '2021-08-01',
+        ])
+            ->assertStatus(200)
+            ->assertJson([
+                'name' => 'Hendy',
+                'age' => 30,
+                'is_active' => true,
+                'price' => 100.5,
+                'married' => '01-08-2021',
+            ]);
     }
     
 }

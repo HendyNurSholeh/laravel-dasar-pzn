@@ -31,5 +31,16 @@ class InputController extends Controller
     {
         return json_encode($request->query());
     }
+
+    public function inputType(Request $request):string
+    {
+        return json_encode([
+            "name" => $request->input("name"),
+            "age" => $request->integer("age"),
+            "is_active" => $request->boolean("is_active"),
+            "price" => $request->float("price"),
+            "married" => $request->date("married", "Y-m-d")->format("d-m-Y"),
+        ]);
+    }
     
 }
