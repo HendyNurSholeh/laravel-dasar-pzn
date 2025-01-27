@@ -25,7 +25,7 @@ Route::get("products/{id}/items/{item}", function($productId, $item){
 });
 Route::get("/categories/{id}", function ($id) {
     return "Category id: {$id}";
-})->where("id", "[0-9]+");
+})->where("id", "[0-9]+")->name("categories.detail");
 Route::get("/categories/{name?}", function ($name = "kosong") {
     return "Category name: {$name}";
 });
@@ -36,3 +36,12 @@ Route::get('/confilict/hendy', function ($name) {
 Route::get('/confilict/{name}', function ($name) {
     return "confilict {$name}";
 });
+
+Route::get('products/{id}', function ($id) {
+    $link = route('categories.detail', ['id' => $id]);
+    return "<a href='{$link}'>Category link: {$link}</a>";
+})->name('products');
+
+Route::get('products-redirect/{id}', function ($id) {
+    return redirect()->route('categories.detail', ['id' => $id]);
+})->name('products.redirect');

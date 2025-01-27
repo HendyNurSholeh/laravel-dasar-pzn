@@ -66,4 +66,17 @@ class ViewTest extends TestCase
             ->assertSeeText('confilict hendy nur sholeh');
     }
 
+    public function testRouteName(): void{
+        $this->get("categories/2")
+            ->assertStatus(200)
+            ->assertSeeText('Category id: 2');
+        
+        $this->get("products/2")
+            ->assertStatus(200)
+            ->assertSeeText('Category link: http://localhost/categories/2');
+        
+        $this->get("products-redirect/2")
+            ->assertStatus(302)
+            ->assertRedirect("categories/2");
+    }
 }
