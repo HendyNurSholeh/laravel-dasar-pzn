@@ -58,3 +58,5 @@ Route::post('input/array', [InputController::class, 'inputArray']);
 Route::get('input/query', [InputController::class, 'inputQuery']);
 Route::post('input/query', [InputController::class, 'inputQuery']);
 Route::post('input/type', [InputController::class, 'inputType']);
+Route::post('input/filter-only', [InputController::class, 'inputFilterOnly']);
+Route::post('input/filter-except', [InputController::class, 'inputFilterExcept']);

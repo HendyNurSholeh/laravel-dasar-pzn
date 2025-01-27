@@ -68,5 +68,38 @@ class InputControllerTest extends TestCase
                 'married' => '01-08-2021',
             ]);
     }
+
+    public function testInputFilterOnly(): void
+    {
+        $this->post('input/filter-only', [
+            'name' => 'Hendy',
+            'age' => '30',
+            'is_active' => '1',
+            'price' => '100.5',
+            'married' => '2021-08-01',
+        ])
+            ->assertStatus(200)
+            ->assertJson([
+                'name' => 'Hendy',
+                'age' => 30,
+            ]);
+    }
+
+    public function testInputFilterExcept(): void
+    {
+        $this->post('input/filter-except', [
+            'name' => 'Hendy',
+            'age' => '30',
+            'is_active' => '1',
+            'price' => '100.5',
+            'married' => '2021-08-01',
+        ])
+            ->assertStatus(200)
+            ->assertJson([
+                'is_active' => true,
+                'price' => 100.5,
+                'married' => '2021-08-01',
+            ]);
+    }
     
 }

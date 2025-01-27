@@ -43,4 +43,14 @@ class InputController extends Controller
         ]);
     }
     
+    public function inputFilterOnly(Request $request):string
+    {
+        return json_encode($request->only(["name", "age"]));
+    }
+
+    public function inputFilterExcept(Request $request):string
+    {
+        return json_encode($request->except(["name", "age"]));
+    }
+    
 }
