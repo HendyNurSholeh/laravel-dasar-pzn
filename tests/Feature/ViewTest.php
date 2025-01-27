@@ -79,4 +79,10 @@ class ViewTest extends TestCase
             ->assertStatus(302)
             ->assertRedirect("categories/2");
     }
+
+   
+
+
+
+
 }
