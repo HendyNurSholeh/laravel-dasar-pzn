@@ -34,4 +34,14 @@ class ResponseControllerTest extends TestCase
             ->assertStatus(200)
             ->assertSeeText('Hallo Hendy');
     }
+
+    public function testResponseWithJson(): void
+    {
+        $this->get('response/response-with-json')
+            ->assertStatus(200)
+            ->assertHeader('Content-Type', 'application/json')
+            ->assertJson(['name' => 'Hendy']);
+    }
+
+
 }

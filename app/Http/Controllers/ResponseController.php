@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -27,4 +28,10 @@ class ResponseController extends Controller
     {
         return response()->view("hello", ["name" => "Hendy"]);
     }
+
+    public function responseWithJson():JsonResponse
+    {
+        return response()->json(["name" => "Hendy"]);
+    }
+    
 }
