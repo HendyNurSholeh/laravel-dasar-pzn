@@ -101,5 +101,73 @@ class InputControllerTest extends TestCase
                 'married' => '2021-08-01',
             ]);
     }
+
+    public function testInputMerge(): void
+    {
+        $this->post('input/merge', [
+            'name' => 'Joko',
+            'age' => '30',
+            'is_active' => '1',
+            'price' => '100.5',
+            'married' => '2021-08-01',
+        ])
+            ->assertStatus(200)
+            ->assertJson([
+                'name' => 'Hendy',
+                'age' => 30,
+                'is_active' => true,
+                'price' => 100.5,
+                'married' => '2021-08-01',
+            ]);
+        
+        $this->post('input/merge', [
+            'age' => '30',
+            'is_active' => '1',
+            'price' => '100.5',
+            'married' => '2021-08-01',
+        ])
+            ->assertStatus(200)
+            ->assertJson([
+                'name' => 'Hendy',
+                'age' => 30,
+                'is_active' => true,
+                'price' => 100.5,
+                'married' => '2021-08-01',
+            ]);
+    }
+
+    public function testInputMergeIfMissing(): void
+    {
+        $this->post('input/merge-if-missing', [
+            'name' => 'Joko',
+            'age' => '30',
+            'is_active' => '1',
+            'price' => '100.5',
+            'married' => '2021-08-01',
+        ])
+            ->assertStatus(200)
+            ->assertJson([
+                'name' => 'Joko',
+                'age' => 30,
+                'is_active' => true,
+                'price' => 100.5,
+                'married' => '2021-08-01',
+            ]);
+        
+        $this->post('input/merge-if-missing', [
+            'age' => '30',
+            'is_active' => '1',
+            'price' => '100.5',
+            'married' => '2021-08-01',
+        ])
+            ->assertStatus(200)
+            ->assertJson([
+                'name' => 'Hendy',
+                'age' => 30,
+                'is_active' => true,
+                'price' => 100.5,
+                'married' => '2021-08-01',
+            ]);
+    }
     
 }

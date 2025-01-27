@@ -52,5 +52,16 @@ class InputController extends Controller
     {
         return json_encode($request->except(["name", "age"]));
     }
+
+    public function inputMerge(Request $request):string
+    {
+        $request->merge(["name" => "Hendy"]);
+        return json_encode($request->input());
+    }
+    public function inputMergeIfMissing(Request $request):string
+    {
+        $request->mergeIfMissing(["name" => "Hendy"]);
+        return json_encode($request->input());
+    }
     
 }
