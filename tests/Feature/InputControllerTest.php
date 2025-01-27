@@ -40,4 +40,15 @@ class InputControllerTest extends TestCase
             ->assertSeeText('Nur');
     }
 
+    public function testInputQuery(): void
+    {
+        $this->get('input/query?name=Hendy')
+            ->assertStatus(200)
+            ->assertSeeText('Hendy');
+        $this->post('input/query?name=Hendy')
+            ->assertStatus(200)
+            ->assertSeeText('Hendy');
+
+    }
+    
 }
