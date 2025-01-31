@@ -22,5 +22,10 @@ class CookieController extends Controller
             "name" => $request->cookie("name")
         ]);
     }
+
+    public function clearCookie(Request $request):Response
+    {
+        return response("Hello World")->withoutCookie("name");
+    }
     
 }

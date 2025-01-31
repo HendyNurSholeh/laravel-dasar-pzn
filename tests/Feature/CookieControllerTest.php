@@ -26,6 +26,13 @@ class CookieControllerTest extends TestCase
             ->assertJson(['name' => 'Hendy']);
     }
 
+    public function testClearCookie(): void
+    {
+        $this->withCookie('name', 'Hendy')
+            ->post('cookie/clear')
+            ->assertStatus(200)
+            ->assertCookie("name", null);
+    }
     
 
 }

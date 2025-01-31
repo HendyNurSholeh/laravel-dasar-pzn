@@ -74,3 +74,4 @@ Route::get('response/response-with-file', [ResponseController::class, 'responseW
 Route::get('response/response-with-download', [ResponseController::class, 'responseWithDownload']);
 Route::post('cookie/set', [CookieController::class, 'setCookie']);
 Route::get('cookie/get', [CookieController::class, 'getCookie']);
+Route::post('cookie/clear', [CookieController::class, 'clearCookie']);
