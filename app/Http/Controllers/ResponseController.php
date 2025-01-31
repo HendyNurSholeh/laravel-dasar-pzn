@@ -46,4 +46,7 @@ class ResponseController extends Controller
         return response()->download(storage_path("app/public/files/avatar.jpg"));
     }
     
+    
+
+
 }
