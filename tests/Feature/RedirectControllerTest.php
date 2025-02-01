@@ -24,4 +24,11 @@ class RedirectControllerTest extends TestCase
             ->assertStatus(302) 
             ->assertRedirect('redirect/hello/Hendy');
     }
+
+    public function testRedirectAction(): void
+    {
+        $this->get('redirect/action')
+            ->assertStatus(302)
+            ->assertRedirect('hello/Hendy');
+    }
 }

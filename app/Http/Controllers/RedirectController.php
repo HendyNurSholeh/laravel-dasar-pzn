@@ -21,6 +21,14 @@ class RedirectController extends Controller
         return redirect()->route("redirect.hello", ['name' => 'Hendy']);
     }
 
+    public function redirectAction():RedirectResponse{
+        return redirect()->action([HelloController::class, 'hello'], ['name' => 'Hendy']);
+    }
+
+    public function test(){
+        return "test";
+    }
+
     public function redirectHello(string $name):string{
         return "Hello $name";
     }
