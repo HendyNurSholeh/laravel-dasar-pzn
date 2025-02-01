@@ -16,4 +16,14 @@ class RedirectController extends Controller
     public function redirectFrom():RedirectResponse{
         return redirect()->to("redirect/redirect-to");
     }
+
+    public function redirectRoute():RedirectResponse{
+        return redirect()->route("redirect.hello", ['name' => 'Hendy']);
+    }
+
+    public function redirectHello(string $name):string{
+        return "Hello $name";
+    }
+
+    
 }
