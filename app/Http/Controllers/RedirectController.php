@@ -33,5 +33,9 @@ class RedirectController extends Controller
         return "Hello $name";
     }
 
+    public function redirectAway():RedirectResponse{
+        return redirect()->away('https://www.google.com');
+    }
+
     
 }

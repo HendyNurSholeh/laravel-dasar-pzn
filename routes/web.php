@@ -81,3 +81,4 @@ Route::get('redirect/redirect-from', [RedirectController::class, 'redirectFrom']
 Route::get('redirect/hello/{name}', [RedirectController::class, 'redirectHello'])->name('redirect.hello');
 Route::get('redirect/route', [RedirectController::class, 'redirectRoute']);
 Route::get('redirect/action', [RedirectController::class, 'redirectAction']);
+Route::get('redirect/away', [RedirectController::class, 'redirectAway']);
