@@ -4,6 +4,7 @@ use App\Http\Controllers\CookieController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\InputController;
+use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\ResponseController;
 use Illuminate\Support\Facades\Route;
 
@@ -75,3 +76,5 @@ Route::get('response/response-with-download', [ResponseController::class, 'respo
 Route::post('cookie/set', [CookieController::class, 'setCookie']);
 Route::get('cookie/get', [CookieController::class, 'getCookie']);
 Route::post('cookie/clear', [CookieController::class, 'clearCookie']);
+Route::get('redirect/redirect-to', [RedirectController::class, 'redirectTo']);
+Route::get('redirect/redirect-from', [RedirectController::class, 'redirectFrom']);
