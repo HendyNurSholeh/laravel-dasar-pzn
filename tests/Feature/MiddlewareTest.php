@@ -48,6 +48,15 @@ class MiddlewareTest extends TestCase
                  ->assertSeeText('OK');
     }
 
+    public function testMiddlewareCsrf(): void
+    {
+        $response = $this->get('middleware-csrf');
+
+        $response->assertStatus(200)
+                 ->assertSeeText('OK');
+    }
+
+
     
 
     

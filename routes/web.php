@@ -95,3 +95,8 @@ Route::middleware('contoh:123456,401')->group(function () {
         return "OK";
     });
 });
+
+// without middleware csrftoken
+Route::get('middleware-csrf', function () {
+    return "OK";
+})->withoutMiddleware('csrf');
