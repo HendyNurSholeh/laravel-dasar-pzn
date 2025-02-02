@@ -104,3 +104,7 @@ Route::middleware('contoh:123456,401')->group(function () {
 Route::get('middleware-csrf', function () {
     return "OK";
 })->withoutMiddleware('csrf');
+
+Route::get('/url/current', function () {
+    return url()->current();
+});
