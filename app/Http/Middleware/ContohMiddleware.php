@@ -13,11 +13,11 @@ class ContohMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next, string $key, string $status): Response
     {
         $apiKey = $request->header('X-API-KEY');
-        if ($apiKey !== '123456') {
-            return response()->json(['message' => 'Unauthorized'], 401);
+        if ($apiKey !== $key) {
+            return response()->json(['message' => 'Unauthorized'], $status);
         }
         return $next($request);
     }

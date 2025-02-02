@@ -87,4 +87,11 @@ Route::get('redirect/away', [RedirectController::class, 'redirectAway']);
 // add middleware
 Route::get('middleware', function () {
     return "OK";
-})->middleware('contoh');
+})->middleware('hendy:123456,401');
+
+
+Route::middleware('contoh:123456,401')->group(function () {
+    Route::get('middleware-parameter', function () {
+        return "OK";
+    });
+});

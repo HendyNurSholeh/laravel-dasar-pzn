@@ -38,5 +38,18 @@ class MiddlewareTest extends TestCase
         $response->assertStatus(401)
                  ->assertJson(['message' => 'Unauthorized']);
     }
+
+    public function testMiddlewareParameter(): void{
+        $response = $this->withHeaders([
+            'X-API-KEY' => '123456',
+        ])->get('middleware-parameter');
+
+        $response->assertStatus(200)
+                 ->assertSeeText('OK');
+    }
+
+    
+
+    
     
 }

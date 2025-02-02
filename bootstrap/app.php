@@ -11,11 +11,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        // $middleware->append(\App\Http\Middleware\ContohMiddleware::class);
-        //group
-        $middleware->group('contoh', [
-            \App\Http\Middleware\ContohMiddleware::class
+        $middleware->alias([
+            'hendy'=> \App\Http\Middleware\ContohMiddleware::class,
+            'contoh'=> \App\Http\Middleware\ContohMiddleware::class,
         ]);
+        
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
