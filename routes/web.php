@@ -70,13 +70,13 @@ Route::post('input/merge', [InputController::class, 'inputMerge']);
 Route::post('input/merge-if-missing', [InputController::class, 'inputMergeIfMissing']);
 Route::post('file/upload', [FileController::class, 'upload']);
 //grouop
-Route::prefix('response')->group(function () {
-    Route::post('/response', [ResponseController::class, 'response']);
-    Route::post('/response-with-header', [ResponseController::class, 'responseWithHeader']);
-    Route::get('/response-with-view', [ResponseController::class, 'responseWithView']);
-    Route::get('/response-with-json', [ResponseController::class, 'responseWithJson']);
-    Route::get('/response-with-file', [ResponseController::class, 'responseWithFile']);
-    Route::get('/response-with-download', [ResponseController::class, 'responseWithDownload']);
+Route::prefix('response')->controller(ResponseController::class)->group(function () {
+    Route::post('/response', 'response');
+    Route::post('/response-with-header',  'responseWithHeader');
+    Route::get('/response-with-view',  'responseWithView');
+    Route::get('/response-with-json',  'responseWithJson');
+    Route::get('/response-with-file',  'responseWithFile');
+    Route::get('/response-with-download',  'responseWithDownload');
 });
 
 Route::post('cookie/set', [CookieController::class, 'setCookie']);
