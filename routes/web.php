@@ -69,12 +69,16 @@ Route::post('input/filter-except', [InputController::class, 'inputFilterExcept']
 Route::post('input/merge', [InputController::class, 'inputMerge']);
 Route::post('input/merge-if-missing', [InputController::class, 'inputMergeIfMissing']);
 Route::post('file/upload', [FileController::class, 'upload']);
-Route::post('response/response', [ResponseController::class, 'response']);
-Route::post('response/response-with-header', [ResponseController::class, 'responseWithHeader']);
-Route::get('response/response-with-view', [ResponseController::class, 'responseWithView']);
-Route::get('response/response-with-json', [ResponseController::class, 'responseWithJson']);
-Route::get('response/response-with-file', [ResponseController::class, 'responseWithFile']);
-Route::get('response/response-with-download', [ResponseController::class, 'responseWithDownload']);
+//grouop
+Route::prefix('response')->group(function () {
+    Route::post('/response', [ResponseController::class, 'response']);
+    Route::post('/response-with-header', [ResponseController::class, 'responseWithHeader']);
+    Route::get('/response-with-view', [ResponseController::class, 'responseWithView']);
+    Route::get('/response-with-json', [ResponseController::class, 'responseWithJson']);
+    Route::get('/response-with-file', [ResponseController::class, 'responseWithFile']);
+    Route::get('/response-with-download', [ResponseController::class, 'responseWithDownload']);
+});
+
 Route::post('cookie/set', [CookieController::class, 'setCookie']);
 Route::get('cookie/get', [CookieController::class, 'getCookie']);
 Route::post('cookie/clear', [CookieController::class, 'clearCookie']);
