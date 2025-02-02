@@ -37,6 +37,9 @@ Route::get("/categories/{id}", function ($id) {
 Route::get("/categories/{name?}", function ($name = "kosong") {
     return "Category name: {$name}";
 });
+Route::get("/url/route-name", function () {
+    return route("categories.detail", ["id" => 123]);
+});
 
 Route::get('/confilict/hendy', function ($name) {
     return "confilict hendy nur sholeh";
@@ -108,3 +111,4 @@ Route::get('middleware-csrf', function () {
 Route::get('/url/current', function () {
     return url()->current();
 });
+
