@@ -89,12 +89,12 @@ Route::get('redirect/route', [RedirectController::class, 'redirectRoute']);
 Route::get('redirect/action', [RedirectController::class, 'redirectAction']);
 Route::get('redirect/away', [RedirectController::class, 'redirectAway']);
 // add middleware
-Route::get('middleware', function () {
-    return "OK";
-})->middleware('hendy:123456,401');
 
 
 Route::middleware('contoh:123456,401')->group(function () {
+    Route::get('middleware', function () {
+        return "OK";
+    });
     Route::get('middleware-parameter', function () {
         return "OK";
     });
