@@ -126,3 +126,13 @@ Route::get('/error/manual-error', function () {
     report(new Exception('Manual error'));
     return "Manual error";
 });
+
+Route::get('/error/abort-400', function () {
+    abort(400);
+});
+Route::get('/error/abort-401', function () {
+    abort(401);
+});
+Route::get('/error/abort-500', function () {
+    abort(500);
+});
