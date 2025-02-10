@@ -115,3 +115,5 @@ Route::get('middleware-csrf', function () {
 Route::get('/url/current', function () {
     return url()->current();
 });
+
+Route::get('/session/create', 'App\Http\Controllers\SessionController@createSession');
