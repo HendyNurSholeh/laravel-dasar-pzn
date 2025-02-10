@@ -57,6 +57,10 @@ Route::get('products-redirect/{id}', function ($id) {
     return redirect()->route('categories.detail', ['id' => $id]);
 })->name('products.redirect');
 
+Route::get('/url/action', function () {
+    return action('App\Http\Controllers\HelloController@hello', ['name' => 'Hendy']);
+});
+
 Route::get('hello/request', [HelloController::class, 'testRequest']);
 Route::get('hello/{name}', [HelloController::class, 'hello', 'name' => 'Hendy']);
 Route::get('input/hello', [InputController::class, 'hello']);
@@ -111,4 +115,3 @@ Route::get('middleware-csrf', function () {
 Route::get('/url/current', function () {
     return url()->current();
 });
-

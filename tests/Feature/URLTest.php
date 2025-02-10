@@ -24,4 +24,11 @@ class URLTest extends TestCase
             ->assertStatus(200)
             ->assertSeeText('http://localhost:8000/categories/123');
     }
+
+    public function testUrlAction(): void
+    {
+        $this->get('/url/action')
+            ->assertStatus(200)
+            ->assertSeeText('http://localhost:8000/hello/Hendy');
+    }
 }
