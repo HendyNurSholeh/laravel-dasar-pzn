@@ -1,3 +1,3 @@
 hahah
 <p>{{ __('Unauthorized') }}</p>
-<p>{{$exception}}</p>
+<p>{{$exception->getMessage()}}</p>

@@ -128,7 +128,7 @@ Route::get('/error/manual-error', function () {
 });
 
 Route::get('/error/abort-400', function () {
-    abort(400);
+    abort(400, "ucup salah validasi");
 });
 Route::get('/error/abort-401', function () {
     abort(401);
