@@ -12,4 +12,10 @@ class SessionController extends Controller
         $request->session()->put('name', 'Hendy');
         return 'Session created';
     }
+
+    public function getSession(Request $request): string
+    {
+        return $request->session()->get('name', 'guest');
+    }
+    
 }

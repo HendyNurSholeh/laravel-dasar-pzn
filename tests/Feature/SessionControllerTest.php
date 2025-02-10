@@ -17,4 +17,19 @@ class SessionControllerTest extends TestCase
             ->assertStatus(200)
             ->assertSeeText('Session created');
     }
+
+    public function testGetSession(): void
+    {
+        $this->withSession(['name' => 'Hendy'])
+            ->get('/session/get')
+            ->assertStatus(200)
+            ->assertSeeText('Hendy');
+    }
+    
+    public function testGetDefaultSession(): void
+    {
+        $this->get('/session/get')
+            ->assertStatus(200)
+            ->assertSeeText('guest');
+    }
 }
