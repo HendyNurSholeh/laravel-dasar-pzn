@@ -122,3 +122,7 @@ Route::get('/session/get', 'App\Http\Controllers\SessionController@getSession');
 Route::get('/error/sample-error', function () {
     throw new Exception('Sample error');
 });
+Route::get('/error/manual-error', function () {
+    report(new Exception('Manual error'));
+    return "Manual error";
+});
