@@ -118,3 +118,7 @@ Route::get('/url/current', function () {
 
 Route::get('/session/create', 'App\Http\Controllers\SessionController@createSession');
 Route::get('/session/get', 'App\Http\Controllers\SessionController@getSession');
+
+Route::get('/error/sample-error', function () {
+    throw new Exception('Sample error');
+});
